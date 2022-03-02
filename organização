@@ -1,0 +1,51 @@
+Quais bibliotecas eu vou utilizar?
+	react-icons, react-router-dom, yup, react-hook-form, styled-components
+
+
+Quais páginas o usuário poderá acessar sem ter feito login?
+	somente register e login
+
+	Rotas que necessitam de autorização:
+	Deve ser informado no cabeçalho da requisição o campo "Authorization", dessa forma:
+	Authorization: Bearer {token}
+
+Qual será a estruturação visual dessas páginas? Vou utilizar alguma biblioteca de componentes?
+	styled-components para estilização.
+
+	container para englobar 
+	content para englobar os inputs e botões
+	botões possuem 3 tipos de cores
+
+
+Estou ciente de quais endpoints irei utilizar? Quais verbos http preciso utilizar e o que ele recebe em seu corpo da requisição?
+
+	criação de usuário: POST /users
+	{
+	"email": "johndoe@email.com",
+	"password": "123456",                      A senha necessita de 6 caracteres.
+	"name": "John Doe",
+	"bio": "Lorem ipsum dolor emet",
+	"contact": "linkedin/in/johndoe",
+	"course_module": "Segundo Módulo (Frontend avançado)"
+	}
+
+
+	Login: POST /sessions
+	{
+	"email": "johndoe@email.com",
+	"password": "123456"
+	}
+
+	Criar tecnologias para o seu perfil: POST /users/techs
+	{
+	"title": "React",
+	"status": "Iniciante"
+	}
+
+	Atualizar tecnologias já criadas anteriormente: PUT /users/techs/:tech_id
+	{
+	"status": "Avançado"
+	}
+
+	deletar uma tecnologia: DELETE /users/techs/:tech_id
+	Não é necessário um corpo da requisição.
