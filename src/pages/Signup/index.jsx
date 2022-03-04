@@ -43,9 +43,6 @@ export const Signup = ({ authenticated }) => {
       bio: "Lorem ipsum dolor emet",
       contact: "linkedin/in/johndoe",
      };
-    console.log( 'entrei' )
-    console.log('user', user)
-    // console.log(user)
     api.post( '/users', user )
       .then( ( _ ) => {
         toast.success( 'Conta criada com sucesso!' );

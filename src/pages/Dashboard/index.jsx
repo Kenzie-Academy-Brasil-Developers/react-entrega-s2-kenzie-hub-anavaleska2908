@@ -6,12 +6,13 @@ import { Redirect, useHistory } from 'react-router-dom';
 import { ImPlus } from 'react-icons/im';
 import { AiOutlineClose } from "react-icons/ai";
 import { Card } from "../../components/Card";
+import { api } from "../../services/api";
 
 
-export const Dashboard = ( { authenticated } ) => {
+export const Dashboard = ( { newTech, setNewTech, authenticated } ) => {
   const [ showModal, setShowModal ] = useState( false )
-  const [renderCard, setRenderCard] = useState(false)
-  const [ newTech, setNewTech] = useState([])
+  const [ tech, setTech ] = useState( [] )
+  
   
   const openModal = () => {
     setShowModal(previousValue => !previousValue)
@@ -23,7 +24,18 @@ export const Dashboard = ( { authenticated } ) => {
     history.push('/login')
   }
 
-  const [user] = useState(JSON.parse( localStorage.getItem( '@KenzieHub:user' ) ) || '')
+  const [token] = useState( JSON.parse( localStorage.getItem( '@KenzieHub:token' ) ) || '' )
+  const [ user ] = useState( JSON.parse( localStorage.getItem( '@KenzieHub:user' ) ) || '' )
+  
+  useEffect( () => {
+    api.get( `/users/${ user.id }`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    } ).then( response => {
+     setTech(response.data.techs)
+    })
+  }, [tech])
       
   if ( !authenticated ) {
     return <Redirect to='login' />
@@ -54,7 +66,9 @@ export const Dashboard = ( { authenticated } ) => {
         }
         </DivModal>
       </Content>
-      { renderCard && <DivTech> <Card /> </DivTech> }
+      <DivTech>
+        {tech.map(newTech => <Card newTech={ newTech } />)}
+      </DivTech>
     </Container>
   )
 }

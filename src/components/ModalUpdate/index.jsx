@@ -9,18 +9,17 @@ import { api } from "../../services/api";
 import { useState } from "react";
 import { Card } from '../Card'
 
-export const ModalRegister = ( { showModal, setShowModal } ) => {
+export const ModalUpdate = ( { tech, setTech, openModalUpdate, setOpenModalUpdate, id, title, status } ) => {
   // const [value, setValue] = useState([])
-  const [ newTech, setNewTech ] = useState( [] )
+
   
   const [token] = useState( JSON.parse( localStorage.getItem( '@KenzieHub:token' ) ) || '' )
   
   const openModal = () => {
-    setShowModal(previousValue => !previousValue)
+    setOpenModalUpdate(previousValue => !previousValue)
   }
 
   const schema = yup.object().shape( {
-    title: yup.string().required( 'Campo obrigatório!' ),
     status: yup.string().required('Campo obrigatório'),
   })
   
@@ -29,38 +28,50 @@ export const ModalRegister = ( { showModal, setShowModal } ) => {
     resolver: yupResolver(schema)
   } )
 
-  const addTechs = (data) => {
- 
-
-    api.post( '/users/techs', data,{      
+  const updateTech = (data) => { 
+  console.log(data)
+    api.put( `/users/techs/${id}`, data,{      
       headers: {
         Authorization: `Bearer ${token}`
       }, 
     } )
       .then( _ => {
-        setNewTech( [ ...newTech, data ] )
-        toast.success( 'Tecnologia Cadastrada com sucesso!' )
+        toast.success( 'Tecnologia Atualizada com sucesso!' )
         openModal()
       } )
-      .catch(error => toast.error('Tecnologia já cadastrada anteriormente!'))
+      .catch( error => toast.error( 'Tecnologia não pode ser atualizada!' ) )
+       
   }
-  console.log(token)  
+
+  const deleteTech = () => {
+
+    api.delete( `/users/techs/${id}`, {      
+      headers: {
+        Authorization: `Bearer ${token}`
+      }, 
+    } )
+      .then( _ => {
+        toast.success( 'Tecnologia excluída com sucesso!' )
+        openModal()
+      } )
+      .catch(error => toast.error('Não foi possível excluir'))
+
+  }
+
+  
 
   return (
-
       <Container>
       <Header>
-        <h3>Cadastrar Tecnologia</h3>
+        <h3>Tecnologia Detalhes</h3>
         <Button onClick={openModal}><AiOutlineClose /></Button>
       </Header>
       <Content>
-        <form onSubmit={handleSubmit(addTechs)}>
-          <label htmlFor="tittle">Nome da tecnologia:</label>
+        <form onSubmit={handleSubmit(updateTech)}>
+          <label htmlFor="tittle">Nome do projeto:</label>
         <input
           name='title'
-          { ...register( 'title' ) }
-          label='Nome'
-          placeholder='Digite aqui sua tecnologia'
+          label='Nome' readOnly value={title}
           error={errors.name?.message} 
           
           />
@@ -71,7 +82,8 @@ export const ModalRegister = ( { showModal, setShowModal } ) => {
             <option value="Intermediário">Intermediário</option>
             <option value="Avançado">Avançado</option>
           </select>
-          <Button type='submit' disabled={ !isDirty }>Cadastrar Tecnologia</Button>
+          <Button type='submit' disabled={ !isDirty }>Salvar alterações</Button>
+          <Button onClick={deleteTech}>Excluir</Button>
         </form>
       </Content>
       </Container>

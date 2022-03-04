@@ -113,4 +113,5 @@ export const DivTech = styled.div`
   align-self: center;
   margin-bottom: 20px;
   border-radius: 5px;
+  flex-direction: column;
 `;
