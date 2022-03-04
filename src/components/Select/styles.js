@@ -10,7 +10,7 @@ export const Container = styled.div`
   }
 `;
 
-export const InputContainer = styled.div`
+export const SelectContainer = styled.div`
   background: var(--gray-2);
   border-radius: 4px;
   border: 0;
@@ -26,15 +26,11 @@ export const InputContainer = styled.div`
       border-color: var(--negative);
     `}
 
-  input {
-    background: transparent;
+  select {
+    background: var(--gray-2);
     border: 0;
     align-items: center;
     flex: 1;
     color: var(--gray-0);
-  }
-
-  svg {
-    margin-right: 10px;
   }
 `;
