@@ -9,7 +9,7 @@ import { Card } from "../../components/Card";
 import { api } from "../../services/api";
 
 
-export const Dashboard = ( { newTech, setNewTech, authenticated } ) => {
+export const Dashboard = ( { newTech, setNewTech, authenticated, setAuthenticated } ) => {
   const [ showModal, setShowModal ] = useState( false )
   const [ tech, setTech ] = useState( [] )
   
@@ -17,11 +17,11 @@ export const Dashboard = ( { newTech, setNewTech, authenticated } ) => {
   const openModal = () => {
     setShowModal(previousValue => !previousValue)
   }
-  
-  const history = useHistory()
 
   const handleClickBack = () => {
-    history.push('/login')
+    localStorage.clear()
+    setAuthenticated(false)
+    
   }
 
   const [token] = useState( JSON.parse( localStorage.getItem( '@KenzieHub:token' ) ) || '' )
@@ -38,7 +38,7 @@ export const Dashboard = ( { newTech, setNewTech, authenticated } ) => {
   }, [tech])
       
   if ( !authenticated ) {
-    return <Redirect to='login' />
+    return <Redirect to='/login' />
   }
 
   return (
@@ -63,11 +63,11 @@ export const Dashboard = ( { newTech, setNewTech, authenticated } ) => {
           { showModal && 
             <ModalRegister showModal={ showModal } setShowModal={ setShowModal }>
             </ModalRegister>  
-        }
+          }
         </DivModal>
       </Content>
       <DivTech>
-        {tech.map(newTech => <Card newTech={ newTech } />)}
+        {tech.map(newTech => <Card key={newTech.id} newTech={ newTech } />)}
       </DivTech>
     </Container>
   )

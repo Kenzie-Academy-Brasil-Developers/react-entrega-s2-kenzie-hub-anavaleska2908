@@ -32,7 +32,7 @@ export const Routes = () => {
         />
       </Route>
       <Route path='/dashboard'>
-        <Dashboard authenticated={authenticated} />
+        <Dashboard authenticated={authenticated} setAuthenticated={setAuthenticated} />
       </Route>
     </Switch>
   )

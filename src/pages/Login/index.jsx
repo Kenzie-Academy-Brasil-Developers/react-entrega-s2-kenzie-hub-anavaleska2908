@@ -23,7 +23,6 @@ export const Login = ({ authenticated, setAuthenticated}) => {
     resolver: yupResolver(schema)
   } )
   
-  // const handleChange = (event) => setValue(event.target.value)
   const history = useHistory()
 
   const handleClick = () => {

@@ -3,11 +3,17 @@ import styled from 'styled-components';
 export const Container = styled.div`
   height: 100vh;
   display: flex;
-  align-items: stretch;
   flex-direction: column;
+  width: 100vw;
 
   hr {
     border: 1px solid var(--gray-3);
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  @media (min-width: 1025px) {
+    max-width: 1200px;
   }
 `;
 
@@ -27,10 +33,19 @@ export const Nav = styled.nav`
     height: 30px;
     margin: 0;
     background-color: var(--gray-2);
+
+    :hover {
+      background-color: var(--gray-1);
+    }
   }
 
   h1 {
     font-size: 1.5rem;
+  }
+
+  @media (min-width: 1025px) {
+    max-width: 1200px;
+    justify-content: space-around;
   }
 `;
 
@@ -54,6 +69,12 @@ export const Header = styled.header`
   p {
     color: var(--gray-1);
   }
+
+  @media (min-width: 1025px) {
+    max-width: 1200px;
+    justify-content: space-around;
+    flex-direction: row;
+  }
 `;
 
 export const Content = styled.main`
@@ -67,6 +88,10 @@ export const Content = styled.main`
   align-self: center;
   border-radius: 5px;
   margin-bottom: 20px;
+
+  @media (min-width: 1025px) {
+    max-width: 1200px;
+  }
 `;
 
 export const DivTitle = styled.div`
@@ -91,6 +116,23 @@ export const DivTitle = styled.div`
     margin: 0;
     margin-left: 10px;
     background-color: var(--gray-2);
+    :hover {
+      background-color: var(--gray-1);
+    }
+  }
+
+  @media (min-width: 1025px) {
+    max-width: 1200px;
+    flex-direction: row;
+    justify-content: space-around;
+
+    h2 {
+      margin-right: 6em;
+    }
+
+    button {
+      margin-left: 5em;
+    }
   }
 `;
 
@@ -101,6 +143,7 @@ export const DivModal = styled.div`
   align-items: center;
   margin-left: 10px;
   align-self: center;
+  margin-top: 20em;
 `;
 
 export const DivTech = styled.div`
@@ -114,4 +157,9 @@ export const DivTech = styled.div`
   margin-bottom: 20px;
   border-radius: 5px;
   flex-direction: column;
+
+  @media (min-width: 1025px) {
+    width: 62vw;
+    max-width: 1200px;
+  }
 `;

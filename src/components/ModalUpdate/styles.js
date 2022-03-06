@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const Container = styled.div`
   background: #000;
   width: 320px;
-  height: 340px;
+  height: 370px;
   z-index: 10;
   position: absolute;
   display: flex;
@@ -38,6 +38,13 @@ export const Header = styled.header`
 
     svg {
       color: var(--gray-1);
+      :hover {
+        color: var(--gray-0);
+      }
+    }
+
+    :hover {
+      background-color: var(--gray-1);
     }
   }
 `;

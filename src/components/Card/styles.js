@@ -6,11 +6,15 @@ export const Container = styled.div`
   height: 60px;
   max-width: 310px;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 20px;
   border-radius: 5px;
+  margin-left: 10px;
+
+  :hover {
+    background: var(--gray-1);
+  }
 
   h3 {
     margin-left: 10px;
@@ -18,6 +22,21 @@ export const Container = styled.div`
 
   p {
     margin-right: 10px;
-    color: var(--gray-1);
+    color: var(--gray-0);
   }
+
+  @media (min-width: 1025px) {
+    width: 60vw;
+    max-width: 1200px;
+  }
+`;
+
+export const DivModal = styled.div`
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 10px;
+  margin-bottom: 20em;
+  align-self: flex-start;
 `;

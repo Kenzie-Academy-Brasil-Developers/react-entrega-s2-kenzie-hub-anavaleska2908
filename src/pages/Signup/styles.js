@@ -21,6 +21,9 @@ export const Nav = styled.nav`
     height: 30px;
     margin: 0;
     background-color: var(--gray-2);
+    :hover {
+      background-color: var(--gray-1);
+    }
   }
 
   h1 {

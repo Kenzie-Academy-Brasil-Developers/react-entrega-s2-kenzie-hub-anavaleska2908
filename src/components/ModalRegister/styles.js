@@ -35,9 +35,15 @@ export const Header = styled.header`
     margin: 0;
     margin-right: 10px;
     background-color: var(--gray-2);
+    :hover {
+      background-color: var(--gray-1);
+    }
 
     svg {
       color: var(--gray-1);
+      :hover {
+        color: var(--gray-0);
+      }
     }
   }
 `;

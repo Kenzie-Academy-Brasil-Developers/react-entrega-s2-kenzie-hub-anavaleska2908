@@ -83,7 +83,7 @@ export const ModalUpdate = ( { tech, setTech, openModalUpdate, setOpenModalUpdat
             <option value="Avançado">Avançado</option>
           </select>
           <Button type='submit' disabled={ !isDirty }>Salvar alterações</Button>
-          <Button onClick={deleteTech}>Excluir</Button>
+          <Button graySchema onClick={deleteTech}>Excluir</Button>
         </form>
       </Content>
       </Container>

@@ -33,7 +33,6 @@ export const Content = styled.main`
   display: flex;
   flex-direction: column;
   width: 90%;
-  /* height: 100vh; */
   max-width: 350px;
   justify-content: center;
   align-items: center;
