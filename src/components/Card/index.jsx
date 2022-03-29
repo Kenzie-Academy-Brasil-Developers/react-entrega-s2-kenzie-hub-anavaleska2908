@@ -10,10 +10,9 @@ const [openModalUpdate, setOpenModalUpdate] = useState(false)
   
   return (
           <>
-          <Container onClick={handleClickModal} >
-          
-                <h3>{ newTech.title }</h3>
-                <p>{ newTech.status }</p>
+          <Container onClick={handleClickModal} >          
+            <h3>{ newTech.title }</h3>
+            <p>{ newTech.status }</p>
           </Container>
           <DivModal>
             { openModalUpdate && 

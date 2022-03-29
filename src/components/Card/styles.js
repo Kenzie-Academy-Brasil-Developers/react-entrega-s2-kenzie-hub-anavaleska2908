@@ -4,7 +4,7 @@ export const Container = styled.div`
   background: var(--gray-4);
   width: 100%;
   height: 60px;
-  max-width: 310px;
+  max-width: 300px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,7 +26,7 @@ export const Container = styled.div`
   }
 
   @media (min-width: 1025px) {
-    width: 60vw;
+    width: 54.5vw;
     max-width: 1200px;
   }
 `;
@@ -34,9 +34,9 @@ export const Container = styled.div`
 export const DivModal = styled.div`
   position: fixed;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   margin-left: 10px;
   margin-bottom: 20em;
-  align-self: flex-start;
+  align-self: center;
 `;

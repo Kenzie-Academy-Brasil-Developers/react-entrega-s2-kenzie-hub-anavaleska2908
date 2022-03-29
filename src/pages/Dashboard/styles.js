@@ -159,7 +159,7 @@ export const DivTech = styled.div`
   flex-direction: column;
 
   @media (min-width: 1025px) {
-    width: 62vw;
+    width: 56vw;
     max-width: 1200px;
   }
 `;

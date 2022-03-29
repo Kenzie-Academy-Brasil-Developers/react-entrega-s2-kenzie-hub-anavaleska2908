@@ -7,7 +7,6 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { toast } from "react-toastify";
 import { api } from "../../services/api";
 import { useState } from "react";
-import { Card } from '../Card'
 
 export const ModalRegister = ( { showModal, setShowModal } ) => {
   // const [value, setValue] = useState([])
