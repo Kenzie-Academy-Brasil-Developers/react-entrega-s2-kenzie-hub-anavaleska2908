@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+<h1 align="center">
+  Kenzie Hub
+</h1>
+<h3 align="center">Projeto do curso de Desenvolvimento Web Fullstack da Kenzie Academy Brasil.</h3>
+<br/>
+<p>
+O objetivo dessa aplicação é criar um hub de portfólios para programadores da Kenzie. Nela, o usuário poderá cadastrar, adicionar tecnologias que aprendeu/está aprendendo.
+</p>  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br/>
 
-## Available Scripts
+## **Tecnologias e bibliotecas utilizadas no FrontEnd:**
+- React.js
+- React Hook Form
+- Yup
+- Axios
+- React Router Dom
+- Toastify
+- Styled-components
+- React-icons
+  
+<br/>
 
-In the project directory, you can run:
 
-### `yarn start`
+O url base da aplicação é https://12-react-entrega-s2-kenzie-hub-anavaleska2908.vercel.app/
+O url base da API é https://kenziehub.herokuapp.com
+A documentação da API é https://github.com/Kenzie-Academy-Brasil-Developers/kenziehub-api
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **Funcionalidades encontradas na aplicação Frontend:**
 
-### `yarn test`
+### Página Inicial:
+- Na página inicial, encontramos dois botões, cadastre-se e login. 
+- Ao clicar no botão de cadastre-se, somos redirecionados para a página de cadastro.
+- Ao clicar no botão de login, somos redirecionados para a página de login.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Página de Cadastro:
+- Encontra-se um formulário de cadastro onde passamos as informações necessárias do programador (nome, email, senha e o módulo em que se encontra)
+- Ao clicar em cadastrar e os dados estão corretos, uma mensagem de sucesso aparece e o usuário é redirecionado para a tela de login.
+  
+### Página de Login:
+- Encontra-se um formulário de login onde passamos as informações necessárias para o programador fazer login (email e senha)
+- Ao clicar em fazer login e os dados estão corretos, uma mensagem de sucesso aparece e o usuário é redirecionado para a tela da dashboard. Esta, só pode ser acessada caso o login dê certo e o usuário esteja autenticado.
+  
+### Página Dashboard:
+- Nela encontramos um header com o nome da aplicação e um botão de saída, onde há a exclusão do token de autenticação. Para retornar o acesso a essa página será necessário fazer novo login.
+- Abaixo desse header, aparecerá o nome de usuário e o módulo indicado no cadastro.
+- Após isso, estará a área de cadastro das tecnologias aprendidas. Ao clicar no botão "+", abrirá um modal onde poderá adicionar uma nova tecnologia.
+- Para cadastrar uma nova tecnologia é necessário passar o nome da mesma e o seu status (iniciante, intermediário ou avançado)
+- Após cadastrar, também é possível editar ou excluir essa tecnologia, clicando na barra criada. Assim, um novo modal será aberto, trazendo as informações cadastradas anteriormente. Apenas o status é alterável. 
+- Importante lembrar de salvar a alteração no status para que ela se torne permanente. 
 
-### `yarn build`
+<br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<hr/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para rodar o código da aplicação, é necessário:
+- yarn (para baixar as estruturas necessárias da aplicação, contida no package.json)
+- yarn start (para rodar a aplicação)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
